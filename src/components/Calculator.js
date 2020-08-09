@@ -2,7 +2,6 @@ import React , {Component} from "react"
 import { render } from "react-dom"
 
 class Calculator extends Component{
-
       state = {
           box : '0',
           count : '0',
@@ -133,24 +132,23 @@ class Calculator extends Component{
       render(){
         const calButton = this.state.NumberButton.map((singleButton) => {
           return (
-              <button onClick={() => this.Number(singleButton.value)} className="button">{singleButton.value}</button>
+              <button onClick={() => this.Number(singleButton.value)} className="NumberButton">{singleButton.value}</button>
           );
         });
 
         const operatorButton = this.state.OperatorButton.map((singleButton) => {
           return (
-              <button onClick={() => this.Operator(singleButton)} className="button">{singleButton.value}</button>
+              <button onClick={() => this.Operator(singleButton)} className="operator">{singleButton.value}</button>
           );
         });        
           return (
-            <div>
+            <div className="Calculator">
                   <div>
-                      <input className="calculate" type="text" value={this.state.box}/>
+                      <input className="Calculator-Screen" type="text" value={this.state.box}/>
                   </div>
-                  <div>
+                  <div className="Calculator-keys">
                             {calButton}
-                  </div>
-                  <div >
+
                             {operatorButton}
                   </div>
             </div>
